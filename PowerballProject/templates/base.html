@@ -1,0 +1,484 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>Power Ball</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	
+
+	<link href="{% static 'css/scrolling-nav.css' %}" rel="stylesheet" type="text/css">
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" style="background-color: #113b4d;">
+
+    {% include 'navbar.html' %}
+
+    <section id="intro" class="intro-section" style="background-color: #113b4d;">
+        <div class="container-fluid">
+        	<div class="row">
+        		<div class="col-lg-12 top-info">
+        			<div class="col-lg-3 col-md-3 col-sm-3 text-left" style="color: red;">
+        				<h4>CURRENT POT:</h4>
+        				<h4>$3,786,808 / 5,258.05 ETH</h4>
+        			</div>
+        			<div class="col-lg-3 col-md-3 col-sm-3 text-left" style="border-left: 1px solid #ebc139;">
+        				<h5>TICKETS WON:</h5>
+        				<h3 style="margin-top: -2px;padding-bottom: 10px;"><b>2535</b></h3>
+
+        			</div>
+        			<div class="col-lg-3 col-md-3 col-sm-3 text-left" style="border-left: 1px solid #ebc139;">
+        				<h4>LAST DRAW:</h4>
+                        {% if last_result %}
+        				{% include 'number_list.html' with number_list=last_result %}
+                        {% else %}
+                        {% include 'number_list.html' with number_list="123456"|make_list %}
+                        {% endif %}
+        				
+        			</div>
+        			<div class="col-lg-3 col-md-3 col-sm-3" style="border-left: 1px solid #ebc139;">
+        				<br>
+        				<h4>WIN HISTORY >> </h4>
+        				<br>
+        			</div>		
+        		</div>
+        	</div>
+        </div>
+        <div class="container">
+        	<br>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="row">
+                    	<div class="col-lg-4 col-md-4 col-sm-4 rm-padding">
+                    		<button id="lottery" class="btn btn-block btn-lg top-btn top-btn-active">LOTTERY</button>
+                    	</div>
+                    	<div class="col-lg-4 col-md-4 col-sm-4 rm-padding">
+                    		<button id="wallet" class="btn btn-block btn-lg top-btn">WALLET</button>
+                    	</div>
+{#                    	<div class="col-lg-4 col-md-4 col-sm-4 rm-padding">#}
+{#                    		<button id="free-eth" class="btn btn-block btn-lg top-btn">GET FREE ETH</button>#}
+{#                    	</div>#}
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+                	<span style="color: white;"><b>YOUR BET</b></span>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                	<span style="color: yellow;">Learn how to play </span>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div id="lottery-div" class="container" style="background-color: white;border-radius: 10px;">
+        	<div class="row">
+        		<div class="col-lg-8 col-md-8 col-sm-8 text-left">
+        			<h3>CHOOSE TICKET VALUE <small>Your ticket value can be any number between 0,001 to 1 ETH</small></h3>
+        			<br>
+        			<div class="row">
+        				<div class="col-lg-3 col-md-3 col-sm-3">
+        					<div class="form-group">
+		        				<div class="input-group">
+		        					<input type="text" name="" style="height: 50px;font-size: 30px;">
+		        					<div class="input-group-addon">ETH</div>
+		        				</div>
+		        			</div>
+        				</div>
+        			</div>
+        			<br>
+                    <form id="form-player-input">{% csrf_token %}
+        			<div class="row">
+        				<div class="col-lg-12">
+        					<h4>CHOOSE YOUR LUCKY NUMBERS FROM 1 TO 49</h4>
+        				</div>
+        				<div class="col-lg-2 col-md-2 col-sm-2">
+        					<div class="row">
+        						<div class="col-lg-2 col-md-2 col-sm-2">
+        							<span class="lot-place">1</span>		
+        						</div>
+        						<div class="col-lg-10 col-md-10 col-sm-10">
+        							<input id="id_white_ball_1" name="white_ball_1" type="number" min="1" max="49" class="form-control lot-number">
+        						</div>
+        					</div>
+        				</div>
+        				<div class="col-lg-2 col-md-2 col-sm-2">
+        					<div class="row">
+        						<div class="col-lg-2 col-md-2 col-sm-2">
+        							<span class="lot-place">2</span>		
+        						</div>
+        						<div class="col-lg-10 col-md-10 col-sm-10">
+        							<input id="id_white_ball_2" name="white_ball_2" type="number" min="1" max="49" class="form-control lot-number">
+        						</div>
+        					</div>
+        				</div>
+        				<div class="col-lg-2 col-md-2 col-sm-2">
+        					<div class="row">
+        						<div class="col-lg-2 col-md-2 col-sm-2">
+        							<span class="lot-place">3</span>		
+        						</div>
+        						<div class="col-lg-10 col-md-10 col-sm-10">
+        							<input id="id_white_ball_3" name="white_ball_3" type="number" min="1" max="49" class="form-control lot-number">
+        						</div>
+        					</div>
+        				</div>
+        				<div class="col-lg-2 col-md-2 col-sm-2">
+        					<div class="row">
+        						<div class="col-lg-2 col-md-2 col-sm-2">
+        							<span class="lot-place">4</span>		
+        						</div>
+        						<div class="col-lg-10 col-md-10 col-sm-10">
+        							<input id="id_white_ball_4" name="white_ball_4" type="number" min="1" max="49" class="form-control lot-number">
+        						</div>
+        					</div>
+        				</div>
+        				<div class="col-lg-2 col-md-2 col-sm-2">
+        					<div class="row">
+        						<div class="col-lg-2 col-md-2 col-sm-2">
+        							<span class="lot-place">5</span>		
+        						</div>
+        						<div class="col-lg-10 col-md-10 col-sm-10">
+        							<input id="id_white_ball_5" name="white_ball_5" type="number" min="1" max="49" class="form-control lot-number">
+        						</div>
+        					</div>
+        				</div>
+        				<div class="col-lg-2 col-md-2 col-sm-2">
+        					<div class="row">
+        						<div class="col-lg-2 col-md-2 col-sm-2">
+        							<span class="lot-place">6</span>		
+        						</div>
+        						<div class="col-lg-10 col-md-10 col-sm-10">
+        							<input id="id_red_ball" name="red_ball" type="number" min="1" max="26" class="form-control lot-number">
+        						</div>
+        					</div>
+        				</div>
+        				<div class="col-lg-12">
+        					<br><br>
+        					<button class="btn btn-block btn-success" style="padding: 20px;">PLAY NOW</button>
+        				</div>
+        			</div>
+                    </form>
+        		</div>
+        		<div class="col-lg-4 col-md-4 col-sm-4 text-left" style="padding: 0px 40px ">
+        			<h4>YOUR ESTIMATED WIN:</h4>
+        			
+        			<div class="row">
+        				<div class="col-lg-12 win-tab-red">
+        					<div class="col-lg-8 col-md-8 col-sm-8">
+        						<h5>HIT #6</h5>	
+        					</div>
+        					<div class="col-lg-4 col-md-4 col-sm-4 text-right">
+        						<h5>70,000 ETH</h5>
+        					</div>
+        					
+        				</div>
+        			</div>
+
+        			<div class="row">
+        				<div class="col-lg-12 win-tab-white">
+        					<div class="col-lg-8 col-md-8 col-sm-8">
+        						<h5>HIT #5</h5>	
+        					</div>
+        					<div class="col-lg-4 col-md-4 col-sm-4 text-right">
+        						<h5>200 ETH</h5>
+        					</div>
+        					
+        				</div>
+        			</div>
+
+        			<div class="row">
+        				<div class="col-lg-12 win-tab-white">
+        					<div class="col-lg-8 col-md-8 col-sm-8">
+        						<h5>HIT #4</h5>	
+        					</div>
+        					<div class="col-lg-4 col-md-4 col-sm-4 text-right">
+        						<h5>5 ETH</h5>
+        					</div>
+        					
+        				</div>
+        			</div>
+
+        			<div class="row">
+        				<div class="col-lg-12 win-tab-white">
+        					<div class="col-lg-8 col-md-8 col-sm-8">
+        						<h5>HIT #3</h5>	
+        					</div>
+        					<div class="col-lg-4 col-md-4 col-sm-4 text-right">
+        						<h5>0.25 ETH</h5>
+        					</div>
+        					
+        				</div>
+        			</div>
+
+        			<div class="row">
+        				<div class="col-lg-12 win-tab-white">
+        					<div class="col-lg-8 col-md-8 col-sm-8">
+        						<h5>HIT #2</h5>	
+        					</div>
+        					<div class="col-lg-4 col-md-4 col-sm-4 text-right">
+        						<h5>0.03 ETH</h5>
+        					</div>
+        					
+        				</div>
+        			</div>
+
+        			<div class="row">
+        				<div class="col-lg-12 win-tab-white">
+        					<div class="col-lg-8 col-md-8 col-sm-8">
+        						<h5>HIT #1</h5>	
+        					</div>
+        					<div class="col-lg-4 col-md-4 col-sm-4 text-right">
+        						<h5>200 ETH</h5>
+        					</div>
+        					
+        				</div>
+        			</div>
+
+        		</div>
+        	</div>
+        </div>
+
+
+        <div id="wallet-div" class="container" style="background-color: white;border-radius: 10px;">
+        	<div class="row">
+        		<div class="col-lg-8 col-md-8 col-sm-8 text-left">
+        			<h4>Here you can easly Unlock. Create and Import Wallet. You can also check your account info and transfer eth.</h4>
+        			<br>
+        			<div class="row">
+        				<div class="col-lg-4 col-md-4 col-sm-4">
+        					<button class="btn btn-success btn-block" style="padding: 10px;">UNLOCK WALLET</button>
+        				</div>
+        				<div class="col-lg-4 col-md-4 col-sm-4">
+        					<button class="btn btn-success btn-block" style="padding: 10px;">CREATE A WALLET</button>
+        				</div>
+        				<div class="col-lg-4 col-md-4 col-sm-4">
+        					<button class="btn btn-success btn-block" style="padding: 10px;">IMPORT WALLET</button>
+        				</div>
+        			</div>
+        			<br>
+        		</div>
+        	</div>
+        </div>
+
+        <div id="free-eth-div" class="container" style="background-color: white;border-radius: 10px;">
+        	<div class="row">
+        		<div class="col-lg-8 col-md-8 col-sm-8 text-left">
+        			<h3>CHOOSE TICKET VALUE <small>Your ticket value can be any number between 0,001 to 1 ETH</small></h3>
+        			<br>
+        			<div class="row">
+        				<div class="col-lg-3 col-md-3 col-sm-3">
+        					<div class="form-group">
+		        				<div class="input-group">
+		        					<input type="text" name="" style="height: 50px;font-size: 30px;">
+		        					<div class="input-group-addon">ETH</div>
+		        				</div>
+		        			</div>
+        				</div>
+        			</div>
+        			<br>
+        		</div>
+        	</div>
+        </div>
+        <br><br>
+    </section>
+    <br><br><br>
+
+    <div class="container-fluid" style="background-color: #13283f;color: white;">
+    	<div class="row">
+    		<div class="col-lg-1 col-md-1 col-sm-1">
+
+    		</div>
+    		<div id="draw-history" class="col-lg-2 col-md-2 col-sm-2 big-list">
+    			<p>DRAW HISTORY</p>
+    		</div>
+    		<div id="win-history" class="col-lg-2 col-md-2 col-sm-2 big-list">
+    			<p>WINS HISTORY</p>
+    		</div>
+    		<div class="col-lg-2 col-md-2 col-sm-2 big-list">
+    			<p>YOUR TICKETS</p>
+    		</div>
+    		<div class="col-lg-2 col-md-2 col-sm-2 big-list">
+    			<p>SMART CONTRACT</p>
+    		</div>
+    		<div id="play" class="col-lg-2 col-md-2 col-sm-2 big-list active-big-list">
+    			<p>HOW TO PLAY</p>
+    		</div>
+
+    	</div>
+    </div>
+    <div class="container">
+    	<div class="row">
+    		<div id="how-to-play" class="col-lg-12" style="background-color: #13283f;color: white;">
+    			<br>
+                How to play the SmartBillions lottery<br>
+				<br>
+				You are purchasing a SmartBillions lottery ticket. Please choose your 6 lucky numbers (from 0 to 15). Keep in mind that the number order matters. Wins are paid out from 2 hits and above.<br>
+				<br>
+				1. Go to “wallet” section<br>
+				2. Create new wallet or access your existing wallet using mnemonic phrase.<br>
+				3. If you create new wallet please enter your new password and save the mnemonic phrase. In order to buy lottery tickets please deposit funds to the wallet address.<br>
+				4. You will be playing SmartBillions lottery from your Wallet using lottery interface.<br>
+				5. You can manage funds in your wallet from “wallet” section<br>
+				<br>
+				Use an Ethereum-enabled browser to access the SmartBillions lottery interface, i.e. Chrome + Metamask <br>
+				<br>
+				How to PLAY using MetaMask wallet:<br>
+				1. Please log in to your Metamask wallet using Chrome, Firefox, Opera or Edge<br>
+				2. Choose your ticket value. Please enter a value between 0.001 – 1 ETH <br>
+				3. Choose your 6 lucky numbers, each between 0-15. Please keep in mind that the number order matters. To win you must hit at least 2 numbers. <br>
+				4. Click the Play Now button<br>
+				5. Confirm the bet transaction<br>
+				6. Wait for the transaction to be mined<br>
+				7. The bet results are the hashes of the third future block<br>
+				8. Play again or claim your winnings<br>
+				<br>
+				Good Luck !!<br>
+				<br>
+				How install the Metamask wallet :<br>
+				1. Please download the Metamask wallet: https://metamask.io/<br>
+				2. Enable the extension and create a new Metamask address<br>
+				3. Save your private key<br>
+				4. Now you can deposit ETH straight into your Metamask wallet to play the lottery!<br><br>
+    		</div>
+
+    		<!--  Draw History Div -->
+
+    		<div id="draw-history-div" class="col-lg-12" style="background-color: #13283f;color: white;">
+    			<br>
+    			<table class="table">
+    				<thead style="background-color: #174c63;">
+    					<tr>
+    						<th>#BLOCK</th>
+    						<th>DRAW NUMBERS</th>
+    						<th>#BETS</th>
+    						<th>BEST VALUE</th>
+    						<th>PAYOUTS</th>
+    					</tr>
+    				</thead>
+    				<tbody style="background-color: white;color: #222;">
+    					<tr>
+    						<td>4788340</td>
+    						<td>5 | 14 | 12 | 0 | 7 | 13</td>
+    						<td>0</td>
+    						<td>0 ETH</td>
+    						<td>0 ETH</td>
+    					</tr>
+    				</tbody>
+    			</table>
+    		</div>
+
+    		<!-- Win history Div -->
+    		<div id="win-history-div" class="col-lg-12" style="background-color: #13283f;color: white;">
+    			<br>
+    			<table class="table">
+    				<thead style="background-color: #174c63;">
+    					<tr>
+    						<th>#BLOCK</th>
+    						<th>BEST VALUE</th>
+    						<th>HITS</th>
+    						<th>PAYOUTS</th>
+    					</tr>
+    				</thead>
+    				<tbody style="background-color: white;color: #222;">
+    					<tr>
+    						<td>4785009</td>
+    						<td>0.002 ETH</td>
+    						<td>3/6</td>
+    						<td>0 ETH</td>
+    					</tr>
+    				</tbody>
+    			</table>
+    		</div>
+    	</div>
+    </div>
+    <br><br><br><br>
+
+    <div id="id_temp_data"></div>
+
+    <!-- Core JavaScript Files -->
+    <script src="{% static 'js/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'js/scrolling-nav.js' %}"></script>
+    <script src="{% static 'js/path.js' %}"></script>
+    <script src="{% static 'js/route_url.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$('#wallet-div').hide();
+    		$('#free-eth-div').hide();
+
+		    $("#wallet").click(function(){
+		        $("#wallet-div").slideDown();
+		        $("#lottery-div").hide();
+		        $('#free-eth-div').hide();
+		        $('#free-eth').removeClass('top-btn-active');
+		        $('#lottery').removeClass('top-btn-active');
+		        $('#wallet').addClass('top-btn-active');
+		    });
+
+		    $("#lottery").click(function(){
+		        $("#lottery-div").slideDown();
+		        $("#wallet-div").hide();
+		        $('#free-eth-div').hide();
+		        $('#free-eth').removeClass('top-btn-active');
+		        $('#wallet').removeClass('top-btn-active');
+		        $('#lottery').addClass('top-btn-active');
+
+		    });
+
+		    $("#free-eth").click(function(){
+		        $("#free-eth-div").slideDown();
+		        $("#wallet-div").hide();
+		        $('#lottery-div').hide();
+		        $('#lottery').removeClass('top-btn-active');
+		        $('#wallet').removeClass('top-btn-active');
+		        $('#free-eth').addClass('top-btn-active');
+		    });
+
+		     $("#draw-history-div").hide();
+		    $("#win-history-div").hide();
+		    $("#play").click(function(){
+		        $("#draw-history-div").hide();
+		    	$("#win-history-div").hide();
+		        $("#how-to-play").slideDown();
+		        $('#draw-history').removeClass('active-big-list');
+		        $('#win-history').removeClass('active-big-list');
+		        $('#play').addClass('active-big-list');
+
+		    });
+
+
+		    $("#draw-history").click(function(){
+		        $("#how-to-play").hide();
+		        $("#win-history-div").hide();
+		        $("#draw-history-div").slideDown();
+		        $('#play').removeClass('active-big-list');
+		        $('#win-history').removeClass('active-big-list');
+		        $('#draw-history').addClass('active-big-list');
+		    });
+
+		    $("#win-history").click(function(){
+		        $("#how-to-play").hide();
+		        $("#draw-history-div").hide();
+		        $("#win-history-div").slideDown();
+		        $('#play').removeClass('active-big-list');
+		        $('#draw-history').removeClass('active-big-list');
+		        $('#win-history').addClass('active-big-list');
+		    });
+
+
+		});
+    </script>
+</body>
+
+</html>

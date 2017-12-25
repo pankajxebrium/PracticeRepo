@@ -1,0 +1,23 @@
+{% load staticfiles %}
+{% if number_list %}
+    <ul style="list-style: none;padding-left: 0px;">
+        <li style="display: inline-block;">
+        <span class="lottery-number">{{ number_list.0 }}</span>
+        </li>
+        <li style="display: inline-block;">
+        <span class="lottery-number">{{ number_list.1 }}</span>
+        </li>
+        <li style="display: inline-block;">
+            <span class="lottery-number">{{ number_list.2 }}</span>
+        </li>
+        <li style="display: inline-block;">
+            <span class="lottery-number">{{ number_list.3 }}</span>
+        </li>
+        <li style="display: inline-block;">
+            <span class="lottery-number">{{ number_list.4 }}</span>
+        </li>
+        <li style="display: inline-block;">
+            <span class="lottery-number" style="background-color: red;color: white;">{{ number_list.5 }}</span>
+        </li>
+    </ul>
+{% endif %}

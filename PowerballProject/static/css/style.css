@@ -1,0 +1,125 @@
+.top-info {
+    background-color: #ffd44a;
+}
+
+.rm-padding {
+    padding: 0px;
+}
+
+.top-btn {
+    font-size: 14px;
+    border-radius: 0px;
+    background-color: #152542;
+    color: white;
+    border: 1px solid #000;
+}
+
+.top-btn-active {
+    background-color: white;
+    color: #152542;
+}
+
+.win-tab-red {
+    background-color: #ff5f3d;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 0 5px #969696;
+    margin: 5px 0px;
+}
+
+.win-tab-white {
+    background-color: white;
+    color: #ff5f3d;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 0 5px #969696;
+    margin: 5px 0px;
+}
+
+.lottery-number {
+    background-color: white;
+    display: block;
+    width: 32px;
+    /*height: 20px;*/
+    padding: 20px;
+    padding: 4px 7px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid #d0cfcf;
+    box-shadow: 0px 0px 1px 0px #9e9e9e
+}
+
+.nav > li > a {
+    color: white !important;
+}
+
+.icon-circle {
+
+    padding: 0px;
+    border: 1px solid white;
+    height: 1px;
+    /* padding: 13px 8px; */
+    border-radius: 20px;
+    display: block;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 6px;
+    padding-bottom: 20px;
+    margin-top: -6px;
+
+}
+
+.lot-number {
+    width: 90px;
+    font-size: 30px;
+    height: 50px;
+    margin-top: 0px;
+    margin-left: 10px;
+    border-color: #e4e3e3;
+}
+
+.lot-place {
+    display: block;
+    margin-top: 12px;
+    position: absolute;
+    margin-left: -3px;
+    color: gray;
+}
+
+.big-list {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.big-list:hover {
+    background-color: white;
+    color: #13283f;
+}
+
+.active-big-list {
+    background-color: white;
+    color: #13283f;
+}
+
+.power-logo{
+    color: black;
+    padding:2px 8px;
+    background: white;
+    border-radius: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.red-power-logo{
+    color: white;
+    padding: 8px 5px;
+    background: red;
+    border-radius: 15px;
+    font-size: 7px;
+    font-weight: bold;
+    vertical-align: middle;
+}

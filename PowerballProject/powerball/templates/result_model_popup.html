@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<section class="container">
+    <div class="modal fade" id="id_result_model_popup" role="dialog" data-backdrop="static" tabindex="-1">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <!-- Header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">PowerBall Result</h4>
+                </div>
+                    <!-- Body -->
+                    <div class="modal-body">
+                        <h4>Your betting numbers</h4>
+                        {% if player_numbers %}
+                        {% include 'number_list.html' with number_list=player_numbers %}
+                        {% endif %}
+                        <h4>Your betting result</h4>
+                        {% if result_numbers %}
+                        {% include 'number_list.html' with number_list=result_numbers %}
+                        {% endif %}
+
+                        <p>{{ result_text }}</p>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
