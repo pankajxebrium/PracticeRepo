@@ -21,33 +21,35 @@
 
     {% include 'navbar.html' %}
 
-    <section id="intro" class="intro-section" style="background-color: #113b4d;">
-        <div class="container-fluid">
+    <!-- <section id="intro" class="intro-section" > -->
+        <div class="container-fluid top-cls" style="background-color: #113b4d;">
         	<div class="row">
         		<div class="col-lg-12 top-info">
-        			<div class="col-lg-3 col-md-3 col-sm-3 text-left" style="color: red;">
-        				<h4>CURRENT POT:</h4>
-        				<h4>$3,786,808 / 5,258.05 ETH</h4>
-        			</div>
-        			<div class="col-lg-3 col-md-3 col-sm-3 text-left" style="border-left: 1px solid #ebc139;">
-        				<h5>TICKETS WON:</h5>
-        				<h3 style="margin-top: -2px;padding-bottom: 10px;"><b>2535</b></h3>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-left" style="color: red;">
+                            <h4>CURRENT POT:</h4>
+                            <h4>$3,786,808 / 5,258.05 ETH</h4>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-left" style="border-left: 1px solid #ebc139;">
+                            <h5>TICKETS WON:</h5>
+                            <h3 style="margin-top: -2px;padding-bottom: 10px;"><b>2535</b></h3>
 
-        			</div>
-        			<div class="col-lg-3 col-md-3 col-sm-3 text-left" style="border-left: 1px solid #ebc139;">
-        				<h4>LAST DRAW:</h4>
-                        {% if last_result %}
-        				{% include 'number_list.html' with number_list=last_result %}
-                        {% else %}
-                        {% include 'number_list.html' with number_list="123456"|make_list %}
-                        {% endif %}
-        				
-        			</div>
-        			<div class="col-lg-3 col-md-3 col-sm-3" style="border-left: 1px solid #ebc139;">
-        				<br>
-        				<h4>WIN HISTORY >> </h4>
-        				<br>
-        			</div>		
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-left" style="border-left: 1px solid #ebc139;">
+                            <h4>LAST DRAW:</h4>
+                            {% if last_result %}
+                            {% include 'number_list.html' with number_list=last_result %}
+                            {% else %}
+                            {% include 'number_list.html' with number_list="123456"|make_list %}
+                            {% endif %}
+                            
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="border-left: 1px solid #ebc139;">
+                            <br>
+                            <h4>WIN HISTORY >> </h4>
+                            <br>
+                        </div>
+                    </div>		
         		</div>
         	</div>
         </div>
@@ -56,10 +58,10 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4">
                     <div class="row">
-                    	<div class="col-lg-4 col-md-4 col-sm-4 rm-padding">
+                    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 rm-padding">
                     		<button id="lottery" class="btn btn-block btn-lg top-btn top-btn-active">LOTTERY</button>
                     	</div>
-                    	<div class="col-lg-4 col-md-4 col-sm-4 rm-padding">
+                    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 rm-padding">
                     		<button id="wallet" class="btn btn-block btn-lg top-btn">WALLET</button>
                     	</div>
 {#                    	<div class="col-lg-4 col-md-4 col-sm-4 rm-padding">#}
@@ -68,11 +70,11 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-center">
                 	<span style="color: white;"><b>YOUR BET</b></span>
                 </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                 	<span style="color: yellow;">Learn how to play </span>
                 </div>
             </div>
@@ -84,10 +86,10 @@
         			<h3>CHOOSE TICKET VALUE <small>Your ticket value can be any number between 0,001 to 1 ETH</small></h3>
         			<br>
         			<div class="row">
-        				<div class="col-lg-3 col-md-3 col-sm-3">
+        				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-10">
         					<div class="form-group">
 		        				<div class="input-group">
-		        					<input type="text" name="" style="height: 50px;font-size: 30px;">
+		        					<input type="text" name="" style="height: 50px;font-size: 30px;width: 200px;">
 		        					<div class="input-group-addon">ETH</div>
 		        				</div>
 		        			</div>
@@ -99,7 +101,9 @@
         				<div class="col-lg-12">
         					<h4>CHOOSE YOUR LUCKY NUMBERS FROM 1 TO 49</h4>
         				</div>
-        				<div class="col-lg-2 col-md-2 col-sm-2">
+                    </div>
+                    <div class="row">
+        				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
         					<div class="row">
         						<div class="col-lg-2 col-md-2 col-sm-2">
         							<span class="lot-place">1</span>		
@@ -109,7 +113,7 @@
         						</div>
         					</div>
         				</div>
-        				<div class="col-lg-2 col-md-2 col-sm-2">
+        				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
         					<div class="row">
         						<div class="col-lg-2 col-md-2 col-sm-2">
         							<span class="lot-place">2</span>		
@@ -119,7 +123,7 @@
         						</div>
         					</div>
         				</div>
-        				<div class="col-lg-2 col-md-2 col-sm-2">
+        				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
         					<div class="row">
         						<div class="col-lg-2 col-md-2 col-sm-2">
         							<span class="lot-place">3</span>		
@@ -129,7 +133,7 @@
         						</div>
         					</div>
         				</div>
-        				<div class="col-lg-2 col-md-2 col-sm-2">
+        				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
         					<div class="row">
         						<div class="col-lg-2 col-md-2 col-sm-2">
         							<span class="lot-place">4</span>		
@@ -139,7 +143,7 @@
         						</div>
         					</div>
         				</div>
-        				<div class="col-lg-2 col-md-2 col-sm-2">
+        				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
         					<div class="row">
         						<div class="col-lg-2 col-md-2 col-sm-2">
         							<span class="lot-place">5</span>		
@@ -148,8 +152,9 @@
         							<input id="id_white_ball_5" name="white_ball_5" type="number" min="1" max="49" class="form-control lot-number">
         						</div>
         					</div>
+                            <br>
         				</div>
-        				<div class="col-lg-2 col-md-2 col-sm-2">
+        				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
         					<div class="row">
         						<div class="col-lg-2 col-md-2 col-sm-2">
         							<span class="lot-place">6</span>		
@@ -158,10 +163,12 @@
         							<input id="id_red_ball" name="red_ball" type="number" min="1" max="26" class="form-control lot-number">
         						</div>
         					</div>
+                            <br>
         				</div>
-        				<div class="col-lg-12">
-        					<br><br>
+        				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        					
         					<button class="btn btn-block btn-success" style="padding: 20px;">PLAY NOW</button>
+                            <br>
         				</div>
         			</div>
                     </form>
@@ -229,7 +236,7 @@
         				</div>
         			</div>
 
-        			<div class="row">
+        			<!-- <div class="row">
         				<div class="col-lg-12 win-tab-white">
         					<div class="col-lg-8 col-md-8 col-sm-8">
         						<h5>HIT #1</h5>	
@@ -239,7 +246,7 @@
         					</div>
         					
         				</div>
-        			</div>
+        			</div> -->
 
         		</div>
         	</div>
@@ -254,12 +261,15 @@
         			<div class="row">
         				<div class="col-lg-4 col-md-4 col-sm-4">
         					<button class="btn btn-success btn-block" style="padding: 10px;">UNLOCK WALLET</button>
+                            <br>
         				</div>
         				<div class="col-lg-4 col-md-4 col-sm-4">
         					<button class="btn btn-success btn-block" style="padding: 10px;">CREATE A WALLET</button>
+                            <br>
         				</div>
         				<div class="col-lg-4 col-md-4 col-sm-4">
         					<button class="btn btn-success btn-block" style="padding: 10px;">IMPORT WALLET</button>
+                            <br>
         				</div>
         			</div>
         			<br>
@@ -287,7 +297,7 @@
         	</div>
         </div>
         <br><br>
-    </section>
+    <!-- </section> -->
     <br><br><br>
 
     <div class="container-fluid" style="background-color: #13283f;color: white;">
@@ -295,19 +305,19 @@
     		<div class="col-lg-1 col-md-1 col-sm-1">
 
     		</div>
-    		<div id="draw-history" class="col-lg-2 col-md-2 col-sm-2 big-list">
+    		<div id="draw-history" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 big-list">
     			<p>DRAW HISTORY</p>
     		</div>
-    		<div id="win-history" class="col-lg-2 col-md-2 col-sm-2 big-list">
+    		<div id="win-history" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 big-list">
     			<p>WINS HISTORY</p>
     		</div>
-    		<div class="col-lg-2 col-md-2 col-sm-2 big-list">
+    		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 big-list">
     			<p>YOUR TICKETS</p>
     		</div>
-    		<div class="col-lg-2 col-md-2 col-sm-2 big-list">
+    		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 big-list">
     			<p>SMART CONTRACT</p>
     		</div>
-    		<div id="play" class="col-lg-2 col-md-2 col-sm-2 big-list active-big-list">
+    		<div id="play" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 big-list active-big-list">
     			<p>HOW TO PLAY</p>
     		</div>
 
