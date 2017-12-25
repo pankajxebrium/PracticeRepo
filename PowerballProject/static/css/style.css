@@ -123,3 +123,14 @@
     font-weight: bold;
     vertical-align: middle;
 }
+
+.top-cls{
+    margin-top: 120px;
+}
+
+@media screen and (max-width: 767px)
+{
+    .top-cls{
+        margin-top: 50px;
+    }
+}
