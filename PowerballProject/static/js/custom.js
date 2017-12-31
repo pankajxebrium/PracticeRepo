@@ -69,3 +69,30 @@ $('#form-player-input').submit(function () {
     return false;
 });
 
+function maxLengthCheck(object)
+{
+    if (object.value.length > object.maxLength)
+      object.value = object.value.slice(0, object.maxLength)
+}
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+}
+
+$('#id_generate_random_numbers').on('click', function(){
+    var temp_arr = [];
+    while(temp_arr.length < 5){
+        var randomnumber = getRandomIntInclusive(1, 49);
+        if(temp_arr.indexOf(randomnumber) > -1) continue;
+        temp_arr[temp_arr.length] = randomnumber;
+    }
+    $('#id_white_ball_1').val(temp_arr[0]);
+    $('#id_white_ball_2').val(temp_arr[1]);
+    $('#id_white_ball_3').val(temp_arr[2]);
+    $('#id_white_ball_4').val(temp_arr[3]);
+    $('#id_white_ball_5').val(temp_arr[4]);
+    $('#id_red_ball').val(getRandomIntInclusive(1, 26));
+});
+

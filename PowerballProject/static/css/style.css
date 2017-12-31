@@ -128,9 +128,22 @@
     margin-top: 120px;
 }
 
+#id_red_ball{
+    border-color: red !important;
+}
+
 @media screen and (max-width: 767px)
 {
     .top-cls{
         margin-top: 50px;
     }
+}
+
+.input-number-hr{
+    height: 2px;
+    width: 35px;
+    background-color: black;
+    position: absolute;
+    margin-top: -8px;
+    margin-left: 22px;
 }

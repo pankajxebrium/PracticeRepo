@@ -28,11 +28,11 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-left" style="color: red;">
                             <h4>CURRENT POT:</h4>
-                            <h4>$3,786,808 / 5,258.05 ETH</h4>
+                            <h4></h4>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-left" style="border-left: 1px solid #ebc139;">
                             <h5>TICKETS WON:</h5>
-                            <h3 style="margin-top: -2px;padding-bottom: 10px;"><b>2535</b></h3>
+                            <h3 style="margin-top: -2px;padding-bottom: 10px;"><b></b></h3>
 
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-left" style="border-left: 1px solid #ebc139;">
@@ -98,9 +98,12 @@
         			<br>
                     <form id="form-player-input">{% csrf_token %}
         			<div class="row">
-        				<div class="col-lg-12">
-        					<h4>CHOOSE YOUR LUCKY NUMBERS FROM 1 TO 49</h4>
+        				<div class="col-lg-10">
+        					<h5>CHOOSE YOUR LUCKY NUMBERS FROM 1 TO 49 FOR WHITE BALL & 1 TO 26 FOR RED BALL</h5>
         				</div>
+                        <div class="col-lg-2 text-center">
+                            <a id="id_generate_random_numbers" style="cursor: pointer;font-size: large;" title="Generate Random Numbers"><i class="fa fa-server" aria-hidden="true"></i></a>
+                        </div>
                     </div>
                     <div class="row">
         				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
@@ -109,7 +112,8 @@
         							<span class="lot-place">1</span>		
         						</div>
         						<div class="col-lg-10 col-md-10 col-sm-10">
-        							<input id="id_white_ball_1" name="white_ball_1" type="number" min="1" max="49" class="form-control lot-number">
+        							<input id="id_white_ball_1" autocomplete="off" oninput="maxLengthCheck(this)" name="white_ball_1" type="number" min="1" max="49" maxlength="2" class="form-control lot-number" required>
+                                    <span class="input-number-hr"></span>
         						</div>
         					</div>
         				</div>
@@ -119,7 +123,8 @@
         							<span class="lot-place">2</span>		
         						</div>
         						<div class="col-lg-10 col-md-10 col-sm-10">
-        							<input id="id_white_ball_2" name="white_ball_2" type="number" min="1" max="49" class="form-control lot-number">
+        							<input id="id_white_ball_2" autocomplete="off" oninput="maxLengthCheck(this)" name="white_ball_2" type="number" min="1" max="49" maxlength="2" class="form-control lot-number" required>
+                                    <span class="input-number-hr"></span>
         						</div>
         					</div>
         				</div>
@@ -129,7 +134,8 @@
         							<span class="lot-place">3</span>		
         						</div>
         						<div class="col-lg-10 col-md-10 col-sm-10">
-        							<input id="id_white_ball_3" name="white_ball_3" type="number" min="1" max="49" class="form-control lot-number">
+        							<input id="id_white_ball_3" autocomplete="off" oninput="maxLengthCheck(this)" name="white_ball_3" type="number" min="1" max="49" maxlength="2" class="form-control lot-number" required>
+                                    <span class="input-number-hr"></span>
         						</div>
         					</div>
         				</div>
@@ -139,7 +145,8 @@
         							<span class="lot-place">4</span>		
         						</div>
         						<div class="col-lg-10 col-md-10 col-sm-10">
-        							<input id="id_white_ball_4" name="white_ball_4" type="number" min="1" max="49" class="form-control lot-number">
+        							<input id="id_white_ball_4" autocomplete="off" oninput="maxLengthCheck(this)" name="white_ball_4" type="number" min="1" max="49" maxlength="2" class="form-control lot-number" required>
+                                    <span class="input-number-hr"></span>
         						</div>
         					</div>
         				</div>
@@ -149,7 +156,8 @@
         							<span class="lot-place">5</span>		
         						</div>
         						<div class="col-lg-10 col-md-10 col-sm-10">
-        							<input id="id_white_ball_5" name="white_ball_5" type="number" min="1" max="49" class="form-control lot-number">
+        							<input id="id_white_ball_5" autocomplete="off" oninput="maxLengthCheck(this)" name="white_ball_5" type="number" min="1" max="49" maxlength="2" class="form-control lot-number" required>
+                                    <span class="input-number-hr"></span>
         						</div>
         					</div>
                             <br>
@@ -160,7 +168,8 @@
         							<span class="lot-place">6</span>		
         						</div>
         						<div class="col-lg-10 col-md-10 col-sm-10">
-        							<input id="id_red_ball" name="red_ball" type="number" min="1" max="26" class="form-control lot-number">
+        							<input id="id_red_ball" autocomplete="off" oninput="maxLengthCheck(this)" name="red_ball" type="number" min="1" max="26" maxlength="2" class="form-control lot-number" required>
+                                    <span class="input-number-hr"></span>
         						</div>
         					</div>
                             <br>
@@ -182,7 +191,7 @@
         						<h5>HIT #6</h5>	
         					</div>
         					<div class="col-lg-4 col-md-4 col-sm-4 text-right">
-        						<h5>70,000 ETH</h5>
+        						<h5>600 ETH</h5>
         					</div>
         					
         				</div>
@@ -194,7 +203,7 @@
         						<h5>HIT #5</h5>	
         					</div>
         					<div class="col-lg-4 col-md-4 col-sm-4 text-right">
-        						<h5>200 ETH</h5>
+        						<h5>100 ETH</h5>
         					</div>
         					
         				</div>
@@ -218,7 +227,7 @@
         						<h5>HIT #3</h5>	
         					</div>
         					<div class="col-lg-4 col-md-4 col-sm-4 text-right">
-        						<h5>0.25 ETH</h5>
+        						<h5>0.15 ETH</h5>
         					</div>
         					
         				</div>
@@ -230,23 +239,11 @@
         						<h5>HIT #2</h5>	
         					</div>
         					<div class="col-lg-4 col-md-4 col-sm-4 text-right">
-        						<h5>0.03 ETH</h5>
+        						<h5>0.004 ETH</h5>
         					</div>
         					
         				</div>
         			</div>
-
-        			<!-- <div class="row">
-        				<div class="col-lg-12 win-tab-white">
-        					<div class="col-lg-8 col-md-8 col-sm-8">
-        						<h5>HIT #1</h5>	
-        					</div>
-        					<div class="col-lg-4 col-md-4 col-sm-4 text-right">
-        						<h5>200 ETH</h5>
-        					</div>
-        					
-        				</div>
-        			</div> -->
 
         		</div>
         	</div>
@@ -327,17 +324,17 @@
     	<div class="row">
     		<div id="how-to-play" class="col-lg-12" style="background-color: #13283f;color: white;">
     			<br>
-                How to play the SmartBillions lottery<br>
+                How to play the GrandLotteries lottery<br>
 				<br>
-				You are purchasing a SmartBillions lottery ticket. Please choose your 6 lucky numbers (from 0 to 15). Keep in mind that the number order matters. Wins are paid out from 2 hits and above.<br>
+				You are purchasing a GrandLotteries lottery ticket. Please choose your 6 lucky numbers (from 0 to 15). Keep in mind that the number order matters. Wins are paid out from 2 hits and above.<br>
 				<br>
 				1. Go to “wallet” section<br>
 				2. Create new wallet or access your existing wallet using mnemonic phrase.<br>
 				3. If you create new wallet please enter your new password and save the mnemonic phrase. In order to buy lottery tickets please deposit funds to the wallet address.<br>
-				4. You will be playing SmartBillions lottery from your Wallet using lottery interface.<br>
+				4. You will be playing GrandLotteries lottery from your Wallet using lottery interface.<br>
 				5. You can manage funds in your wallet from “wallet” section<br>
 				<br>
-				Use an Ethereum-enabled browser to access the SmartBillions lottery interface, i.e. Chrome + Metamask <br>
+				Use an Ethereum-enabled browser to access the GrandLotteries lottery interface, i.e. Chrome + Metamask <br>
 				<br>
 				How to PLAY using MetaMask wallet:<br>
 				1. Please log in to your Metamask wallet using Chrome, Firefox, Opera or Edge<br>
@@ -486,6 +483,9 @@
 		        $('#win-history').addClass('active-big-list');
 		    });
 
+            setTimeout(function(){
+    	        alert('Dear User, site is under construction and will be available soon to play.');
+            }, 400);
 
 		});
     </script>

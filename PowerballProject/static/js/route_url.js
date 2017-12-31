@@ -12,7 +12,7 @@ Path.map("#regression").to(function () {
 
 
 // Default url
-Path.root("#devices");
+Path.root("#powerball");
 
 $(document).ready(function () {
     // This line is used to start the PathJS listener.
